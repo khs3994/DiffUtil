@@ -4,7 +4,7 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 
 class MyItemTouchHelperCallback(private val recyclerView: RecyclerView) : ItemTouchHelper.SimpleCallback(
-    ItemTouchHelper.UP or ItemTouchHelper.DOWN, // 어느 방향으로 움직일건지
+    ItemTouchHelper.UP or ItemTouchHelper.DOWN,
     ItemTouchHelper.LEFT
 ) {
     override fun onMove(
@@ -13,8 +13,8 @@ class MyItemTouchHelperCallback(private val recyclerView: RecyclerView) : ItemTo
         target: RecyclerView.ViewHolder
     ): Boolean {
         (recyclerView.adapter as MyRecyclerViewAdapter).moveItem(
-            viewHolder.adapterPosition, //움직이기 전 위치
-            target.adapterPosition // 움직인 후 위치
+            viewHolder.adapterPosition,
+            target.adapterPosition
         )
         return true
     }
@@ -27,7 +27,7 @@ class MyItemTouchHelperCallback(private val recyclerView: RecyclerView) : ItemTo
         super.onSelectedChanged(viewHolder, actionState)
         when(actionState){
             ItemTouchHelper.ACTION_STATE_DRAG, ItemTouchHelper.ACTION_STATE_SWIPE -> {
-                (viewHolder as MyViewHolder).setAlpha(1.0f)
+                (viewHolder as MyViewHolder).setAlpha(0.5f)
             }
         }
     }

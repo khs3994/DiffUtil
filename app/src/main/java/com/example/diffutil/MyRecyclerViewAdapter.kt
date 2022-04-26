@@ -28,12 +28,7 @@ class MyRecyclerViewAdapter : ListAdapter<Student, RecyclerView.ViewHolder>(MyDi
     }
 
     fun moveItem(fromPosition: Int, toPosition: Int) { // 아이템 이동함수
-        //변경하기 전 위치와 변경한 후의 위치를 받아온다
-        // 그 위치를 반영한 새로운 데이터를 만들어낸다
-        // 그 새로운 데이터를 기존의 데이터와 비교한다
-        // 포지션이 변경된 데이터를 submitList에 넣어준다
-        val newList = currentList.toMutableList() // ListAdapter를 상속받을시에는 currentList를 통해서 새로운 데이터를 만들어 낼수 있다
-                                                 // 하지만 이 데이터는 변경이 불가능한 상태이기 때문에 toMutableList()를 통해 변경이 가능한 상태로 만들어 준다다
+        val newList = currentList.toMutableList()
         Collections.swap(newList, fromPosition, toPosition) // 이 swap 함수를 통해 newList를 위치가 바뀐 아이템으로 newList를 바꿔준다
         submitList(newList)
     }
