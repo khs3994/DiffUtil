@@ -20,7 +20,7 @@ class MyViewHolder(private val binding: LayoutViewholderBinding) : //바인딩�
         }
     }
 
-    fun setAlpha(alpha: Float) { // 아이템을 잡고 끌때 사용
+    fun setAlpha(alpha: Float) { // 아이템을 잡고 끌때 사용, 텍스트 뷰의 투명도 변경가능
         with(binding) {
             tvName.alpha = alpha
             tvSchool.alpha = alpha
